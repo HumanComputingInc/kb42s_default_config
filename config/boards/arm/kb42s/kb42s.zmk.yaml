@@ -1,0 +1,13 @@
+file_format: "1"
+id: kb42s
+name: KB42S
+type: board
+url: https://humancomputing.io
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+siblings:
+  - kb54_nrf52840_l

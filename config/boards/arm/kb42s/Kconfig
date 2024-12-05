@@ -1,0 +1,8 @@
+if BOARD_KB42S
+
+config BOARD_ENABLE_DCDC
+    bool "DCDC mode"
+    select SOC_DCDC_NRF52X
+    default y
+
+endif # BOARD_KB42S

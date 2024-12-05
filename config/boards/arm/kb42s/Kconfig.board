@@ -1,0 +1,3 @@
+config BOARD_KB42S
+    bool "KB42S"
+    depends on SOC_NRF52840_QIAA

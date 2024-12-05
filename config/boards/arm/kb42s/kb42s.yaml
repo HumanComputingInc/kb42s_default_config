@@ -1,0 +1,21 @@
+identifier: kb42s
+name: KB42S
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+outputs:
+  - usb
+  - ble
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - usb_device
+  - ble
+  - ieee802154
+  - watchdog
+  - gpio
+  - spi
+  - i2c
