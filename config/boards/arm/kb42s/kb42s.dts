@@ -84,8 +84,6 @@
         device = <&glidepoint>;
 
         xy-swap;
-        y-invert;
-        x-invert;
         scale-multiplier = <3> ;
     };
 };
