@@ -79,12 +79,12 @@
         ;
 	};
 
-    glidepoint_input {
+    trackpad: trackpad {
         compatible = "zmk,input-listener";
         device = <&glidepoint>;
 
-        xy-swap;
-        scale-multiplier = <3> ;
+        /* xy-swap; */
+        /* scale-multiplier = <3> ; */
     };
 };
 
