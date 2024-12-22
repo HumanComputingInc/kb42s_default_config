@@ -121,3 +121,7 @@
 &msc_input_listener {
     input-processors = <&zip_temp_layer MOUSE_L 1500>;
 };
+
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer MOUSE_L 1500>;
+};
