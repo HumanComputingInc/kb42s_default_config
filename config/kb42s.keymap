@@ -107,27 +107,8 @@
     input-processors
     = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>
     , <&zip_xy_scaler 2 1>
+    , <&zip_temp_layer MOUSE_L 2000>
     ;
-
-    temp_def {
-        layers = <DEFAULT_L>;
-        input-processors = <&zip_temp_layer MOUSE_L 2000>;
-    };
-
-    temp_sym {
-        layers = <SYMBOLS_L>;
-        input-processors = <&zip_temp_layer MOUSE_L 2000>;
-    };
-
-    temp_arr {
-        layers = <ARROWS_L>;
-        input-processors = <&zip_temp_layer MOUSE_L 2000>;
-    };
-
-    temp_num {
-        layers = <NUMBERS_L>;
-        input-processors = <&zip_temp_layer MOUSE_L 2000>;
-    };
 
     scroller {
         layers = <MOUSE_SCRL_L>;
