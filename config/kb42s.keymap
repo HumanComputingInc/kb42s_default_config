@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+
 #include <behaviors.dtsi>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/pointing.h>
@@ -110,8 +112,12 @@
     , <&zip_temp_layer MOUSE_L 1000>
     ;
 
-    scroller {
+    /* scroller {
         layers = <MOUSE_SCRL_L>;
         input-processors = <&zip_xy_to_scroll_mapper>;
-    };
+    }; */
+};
+
+&msc_input_listener {
+    input-processors = <&zip_temp_layer MOUSE_L 1500>;
 };
