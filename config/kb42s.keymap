@@ -87,7 +87,7 @@
             bindings = <
    &kp ESC      &none           &none               &none               &none               &none                           &none       &none       &none       &none       &none       &hm DEL BSPC
    &none        &none           &mo MOUSE_SCRL_L    &mkp RCLK           &mkp LCLK           &mkp MCLK                       &none       &none       &none       &none       &none       &kp RET
-   &kp TAB      &none           &msc SCRL_LEFT      &msc SCRL_UP        &msc SCRL_DOWN      &msc SCRL_RIGHT                 &none       &none       &none       &none       &none       &none
+   &kp TAB      &none           &msc SCRL_LEFT      &msc SCRL_DOWN      &msc SCRL_UP        &msc SCRL_RIGHT                 &none       &none       &none       &none       &none       &none
                     	                            &kp LCMD            &kp LSHFT           &to DEFAULT_L                   &none       &kp SPACE   &none
             >;
         };
