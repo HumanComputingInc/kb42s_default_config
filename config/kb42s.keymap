@@ -6,14 +6,17 @@
 
 #include <behaviors.dtsi>
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/input_transform.h>
 
-#define DEFAULT_L 0
-#define SYMBOLS_L 1
-#define ARROWS_L  2
-#define NUMBERS_L 3
+#define DEFAULT_L       0
+#define SYMBOLS_L       1
+#define ARROWS_L        2
+#define NUMBERS_L       3
+#define MOUSE_L         4
+#define MOUSE_SCRL_L    5
 
 / {
 
@@ -75,6 +78,28 @@
                     	                        &kp LCMD        &kp LSHFT       &to DEFAULT_L                   &to SYMBOLS_L   &kp SPACE   &none
             >;
         };
+
+        mouse_layer {
+            display-name = "MSE";
+			label = "MSE";
+            bindings = <
+   &kp ESC      &none           &none           &none           &none               &none                           &none       &none       &none       &none       &none       &hm DEL BSPC
+   &none        &none           &none           &mkp RCLK       &mkp LCLK           &mkp MCLK                       &none       &none       &none       &none       &none       &kp RET
+   &kp TAB      &none           &none           &none           &mo MOUSE_SCRL_L    &none                           &none       &none       &none       &none       &none       &none
+                    	                        &kp LCMD        &kp LSHFT           &to DEFAULT_L                   &none       &kp SPACE   &none
+            >;
+        };
+
+        mouse_scroll_layer {
+            display-name = "MSES";
+			label = "MSES";
+            bindings = <
+   &kp ESC      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &hm DEL BSPC
+   &trans       &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &kp RET
+   &kp TAB      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans
+                    	                        &kp LCMD        &kp LSHFT       &to DEFAULT_L                   &none           &kp SPACE       &none
+            >;
+        };
     };
 };
 
@@ -83,4 +108,29 @@
     = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>
     , <&zip_xy_scaler 2 1>
     ;
+
+    temp_def {
+        layers = <DEFAULT_L>;
+        input-processors = <&zip_temp_layer MOUSE_L 2000>;
+    };
+
+    temp_sym {
+        layers = <SYMBOLS_L>;
+        input-processors = <&zip_temp_layer MOUSE_L 2000>;
+    };
+
+    temp_arr {
+        layers = <ARROWS_L>;
+        input-processors = <&zip_temp_layer MOUSE_L 2000>;
+    };
+
+    temp_num {
+        layers = <NUMBERS_L>;
+        input-processors = <&zip_temp_layer MOUSE_L 2000>;
+    };
+
+    scroller {
+        layers = <MOUSE_SCRL_L>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
 };
