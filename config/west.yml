@@ -7,14 +7,14 @@ manifest:
     - name: HumanComputingInc
       url-base: https://github.com/HumanComputingInc
   projects:
-    # - name: zmk
-    #   remote: zmkfirmware
-    #   revision: main
-    #   import: app/west.yml
-    - name: zmk-pete
-      remote: HumanComputingInc
-      revision: pointing/temp-layer-fixes
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
+    # - name: zmk-pete
+    #   remote: HumanComputingInc
+    #   revision: pointing/temp-layer-fixes
+    #   import: app/west.yml
     - name: cirque-input-module
       remote: petejohanson
       revision: main
