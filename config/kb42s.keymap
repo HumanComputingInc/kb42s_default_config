@@ -25,7 +25,7 @@
     combos {
         compatible = "zmk,combos";
         combo_nav {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             /* (left thumb right) + (right thumb central) */
             key-positions = <38 40>;
             bindings = <&mo NAV_L>;
@@ -54,7 +54,7 @@
    &kp ESC      &kp Q       &kp W       &kp F       &kp P       &kp B               &kp J           &kp L       &kp U       &kp Y       &kp EQUAL       &kp BSPC
    &kp SQT      &kp A       &kp R       &kp S       &hm LCMD T  &kp G               &kp M           &hm LCMD N  &kp E       &kp I       &kp O           &kp RET
    &kp TAB      &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K           &kp H       &kp COMMA   &kp DOT     &kp SEMI        &kp FSLH
-                                        &mo SYM_L   &kp LSHFT   &mo NUM_L           &kp LCTRL       &kp SPACE   &kp LCMD
+                                        &kp LCMD    &kp LSHFT   &kp LCTRL           &mo SYM_L       &kp SPACE   &mo NUM_L
             >;
         };
 
@@ -65,7 +65,7 @@
    &kp ESC      &none           &none           &kp LPAR        &kp RPAR        &none                           &none           &hm F7 N7   &hm F8 N8   &hm F9 N9   &none           &hm DEL BSPC
    &none        &none           &kp STAR        &kp FSLH        &kp PLUS        &kp MINUS                       &kp EQUAL       &hm F4 N4   &hm F5 N5   &hm F6 N6   &hm F12 DOT     &kp RET
    &kp TAB      &none           &none           &none           &kp DOT         &kp COMMA                       &hm F10 N0		&hm F1 N1   &hm F2 N2   &hm F3 N3   &kp COMMA       &none
-                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE   &kp LCMD
+                                                &kp LCMD        &kp LSHFT       &kp LCTRL                       &none           &kp SPACE   &none
             >;
         };
 
@@ -77,7 +77,7 @@
    &kp ESC      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET       &kp AMPS    &kp STAR    &kp MINUS   &none           &kp BSPC
    &kp GRAVE    &kp TILDE   &none       &none       &none       &kp PLUS            &kp HOME        &kp LBRC    &kp RBRC    &kp END     &kp BSLH        &kp RET
    &kp TAB      &none       &none       &none       &none       &kp MINUS           &kp LBKT        &kp LPAR    &kp RPAR    &kp RBKT    &none           &none
-                                        &none       &kp LSHFT   &none               &kp LCTRL       &kp SPACE   &kp LCMD
+                                        &kp LCMD    &kp LSHFT   &kp LCTRL           &none           &kp SPACE   &none
             >;
         };
 
@@ -88,7 +88,7 @@
    &kp ESC      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_CLR                      &none           &none           &none           &kp F11         &kp F12         &kp BSPC
    &none        &none           &kp C_PP        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP                    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &kp RET
    &kp TAB      &none           &none           &kp C_PREV      &kp C_NEXT      &kp C_BRI_DN                    &kp LG(LEFT)    &kp LC(LEFT)    &kp LC(RIGHT)   &kp RG(RIGHT)   &none           &none
-                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE       &kp LCMD
+                                                &kp LCMD        &kp LSHFT       &kp LCTRL                       &none           &kp SPACE       &none
             >;
         };
 
@@ -99,7 +99,7 @@
    &kp ESC      &none           &none               &none               &none               &none                           &none       &none       &none       &none       &none       &hm DEL BSPC
    &none        &none           &mo MSE_SCRL_L      &mkp RCLK           &mkp LCLK           &mkp MCLK                       &none       &none       &none       &none       &none       &kp RET
    &kp TAB      &none           &msc SCRL_RIGHT     &msc SCRL_DOWN      &msc SCRL_UP        &msc SCRL_LEFT                  &none       &none       &none       &none       &none       &none
-                                                    &none               &kp LSHFT           &none                           &kp LCTRL   &kp SPACE   &kp LCMD
+                                                    &kp LCMD            &kp LSHFT           &kp LCTRL                       &none       &kp SPACE   &none
             >;
         };
 
@@ -110,7 +110,7 @@
    &kp ESC      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &hm DEL BSPC
    &trans       &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &kp RET
    &kp TAB      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans
-                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE       &kp LCMD
+                                                &kp LCMD        &kp LSHFT       &kp LCTRL                       &none           &kp SPACE       &none
             >;
         };
     };
