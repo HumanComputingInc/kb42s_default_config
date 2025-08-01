@@ -132,6 +132,7 @@ zephyr_udc0: &usbd {
         dr-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
 
         sensitivity = "2x";
+	rotate-90;
         /* sleep; */
     };
 };
