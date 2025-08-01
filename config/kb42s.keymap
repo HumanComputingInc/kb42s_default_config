@@ -13,14 +13,24 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/input_transform.h>
 
-#define DEFAULT_L       0
-#define SYMBOLS_L       1
-#define ARROWS_L        2
-#define NUMBERS_L       3
-#define MOUSE_L         4
-#define MOUSE_SCRL_L    5
+#define DEF_L       0
+#define NUM_L       1
+#define SYM_L       2
+#define NAV_L       3
+#define MSE_L       4
+#define MSE_SCRL_L  5
 
 / {
+
+    combos {
+        compatible = "zmk,combos";
+        combo_nav {
+            timeout-ms = <50>;
+            /* (left thumb right) + (right thumb central) */
+            key-positions = <38 40>;
+            bindings = <&mo NAV_L>;
+        };
+    };
 
 	behaviors {
         hm: homerow_mods {
@@ -43,30 +53,8 @@
 
    &kp ESC      &kp Q       &kp W       &kp F       &kp P       &kp B               &kp J           &kp L       &kp U       &kp Y       &kp EQUAL       &kp BSPC
    &kp SQT      &kp A       &kp R       &kp S       &hm LCMD T  &kp G               &kp M           &hm LCMD N  &kp E       &kp I       &kp O           &kp RET
-   &kp TAB      &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K           &kp H       &kp COMMA   &kp DOT     &kp SEMI        &kp FSLH 
-                                        &kp LCMD    &kp LSHFT   &kp LCTRL           &to SYMBOLS_L   &kp SPACE   &to NUMBERS_L
-            >;
-        };
-
-        symbols_layer {
-            display-name = "SYMB";
-			label = "SYMB";
-            bindings = <
-   &kp ESC      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET       &kp AMPS    &kp STAR    &kp MINUS   &none           &kp BSPC
-   &kp GRAVE    &none       &none       &none       &none       &kp PLUS            &kp HOME        &kp LBRC    &kp RBRC    &kp END     &kp BSLH        &kp RET
-   &kp TAB      &none       &none       &none       &none       &kp MINUS           &kp LBKT        &kp LPAR    &kp RPAR    &kp RBKT    &none           &to ARROWS_L
-                                        &kp LCMD    &kp LSHFT   &to DEFAULT_L       &none           &kp SPACE   &to NUMBERS_L
-            >;
-        };
-
-        arrows_layer {
-            display-name = "NAV";
-			label = "NAV";
-            bindings = <
-   &kp ESC      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_CLR                      &none           &none       &none       &kp F11     &kp F12         &kp BSPC
-   &none        &none           &kp C_PP        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP                    &kp LEFT        &kp DOWN    &kp UP      &kp RIGHT   &none           &kp RET
-   &kp TAB      &none           &none           &kp C_PREV      &kp C_NEXT      &kp C_BRI_DN                    &none           &none       &none       &none       &none           &none 
-                    	                        &kp LCMD        &kp LSHFT       &to DEFAULT_L                   &to SYMBOLS_L   &kp SPACE   &to NUMBERS_L
+   &kp TAB      &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K           &kp H       &kp COMMA   &kp DOT     &kp SEMI        &kp FSLH
+                                        &mo SYM_L   &kp LSHFT   &mo NUM_L           &kp LCTRL       &kp SPACE   &kp LCMD
             >;
         };
 
@@ -74,10 +62,33 @@
             display-name = "NUM";
 			label = "NUM";
             bindings = <
-   &kp ESC      &none           &none           &none           &none           &none                           &none           &hm F7 N7   &hm F8 N8   &hm F9 N9   &none           &hm DEL BSPC
-   &none        &none           &none           &none           &kp STAR        &kp PLUS                        &kp EQUAL       &hm F4 N4   &hm F5 N5   &hm F6 N6   &hm F12 DOT     &kp RET
-   &kp TAB      &none           &none           &none           &kp FSLH        &kp MINUS                       &hm F10 N0		&hm F1 N1   &hm F2 N2   &hm F3 N3   &kp COMMA       &to ARROWS_L
-                    	                        &kp LCMD        &kp LSHFT       &to DEFAULT_L                   &to SYMBOLS_L   &kp SPACE   &kp LCTRL
+   &kp ESC      &none           &none           &kp LPAR        &kp RPAR        &none                           &none           &hm F7 N7   &hm F8 N8   &hm F9 N9   &none           &hm DEL BSPC
+   &none        &none           &kp STAR        &kp FSLH        &kp PLUS        &kp MINUS                       &kp EQUAL       &hm F4 N4   &hm F5 N5   &hm F6 N6   &hm F12 DOT     &kp RET
+   &kp TAB      &none           &none           &none           &kp DOT         &kp COMMA                       &hm F10 N0		&hm F1 N1   &hm F2 N2   &hm F3 N3   &kp COMMA       &none
+                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE   &kp LCMD
+            >;
+        };
+
+
+        symbols_layer {
+            display-name = "SYMB";
+			label = "SYMB";
+            bindings = <
+   &kp ESC      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET       &kp AMPS    &kp STAR    &kp MINUS   &none           &kp BSPC
+   &kp GRAVE    &kp TILDE   &none       &none       &none       &kp PLUS            &kp HOME        &kp LBRC    &kp RBRC    &kp END     &kp BSLH        &kp RET
+   &kp TAB      &none       &none       &none       &none       &kp MINUS           &kp LBKT        &kp LPAR    &kp RPAR    &kp RBKT    &none           &none
+                                        &none       &kp LSHFT   &none               &kp LCTRL       &kp SPACE   &kp LCMD
+            >;
+        };
+
+        arrows_layer {
+            display-name = "NAV";
+			label = "NAV";
+            bindings = <
+   &kp ESC      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_CLR                      &none           &none           &none           &kp F11     &kp F12         &kp BSPC
+   &none        &none           &kp C_PP        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP                    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT   &none           &kp RET
+   &kp TAB      &none           &none           &kp C_PREV      &kp C_NEXT      &kp C_BRI_DN                    &none           &kp LC(LEFT)    &kp LC(RIGHT)   &none       &none           &none
+                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE       &kp LCMD
             >;
         };
 
@@ -86,9 +97,9 @@
 			label = "MSE";
             bindings = <
    &kp ESC      &none           &none               &none               &none               &none                           &none       &none       &none       &none       &none       &hm DEL BSPC
-   &none        &none           &mo MOUSE_SCRL_L    &mkp RCLK           &mkp LCLK           &mkp MCLK                       &none       &none       &none       &none       &none       &kp RET
+   &none        &none           &mo MSE_SCRL_L      &mkp RCLK           &mkp LCLK           &mkp MCLK                       &none       &none       &none       &none       &none       &kp RET
    &kp TAB      &none           &msc SCRL_RIGHT     &msc SCRL_DOWN      &msc SCRL_UP        &msc SCRL_LEFT                  &none       &none       &none       &none       &none       &none
-                    	                            &kp LCMD            &kp LSHFT           &to DEFAULT_L                   &none       &kp SPACE   &none
+                                                    &none               &kp LSHFT           &none                           &kp LCTRL   &kp SPACE   &kp LCMD
             >;
         };
 
@@ -99,7 +110,7 @@
    &kp ESC      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &hm DEL BSPC
    &trans       &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &kp RET
    &kp TAB      &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans
-                    	                        &kp LCMD        &kp LSHFT       &to DEFAULT_L                   &none           &kp SPACE       &none
+                                                &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE       &kp LCMD
             >;
         };
     };
@@ -109,19 +120,19 @@
     input-processors
     = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>
     , <&zip_xy_scaler 2 1>
-    , <&zip_temp_layer MOUSE_L 1000>
+    , <&zip_temp_layer MSE_L 1000>
     ;
 
     /* scroller {
-        layers = <MOUSE_SCRL_L>;
+        layers = <MSE_SCRL_L>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     }; */
 };
 
 &msc_input_listener {
-    input-processors = <&zip_temp_layer MOUSE_L 1500>;
+    input-processors = <&zip_temp_layer MSE_L 1500>;
 };
 
 &mkp_input_listener {
-    input-processors = <&zip_temp_layer MOUSE_L 1500>;
+    input-processors = <&zip_temp_layer MSE_L 1500>;
 };
