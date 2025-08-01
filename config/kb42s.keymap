@@ -85,9 +85,9 @@
             display-name = "NAV";
 			label = "NAV";
             bindings = <
-   &kp ESC      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_CLR                      &none           &none           &none           &kp F11     &kp F12         &kp BSPC
-   &none        &none           &kp C_PP        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP                    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT   &none           &kp RET
-   &kp TAB      &none           &none           &kp C_PREV      &kp C_NEXT      &kp C_BRI_DN                    &none           &kp LC(LEFT)    &kp LC(RIGHT)   &none       &none           &none
+   &kp ESC      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_CLR                      &none           &none           &none           &kp F11         &kp F12         &kp BSPC
+   &none        &none           &kp C_PP        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP                    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &kp RET
+   &kp TAB      &none           &none           &kp C_PREV      &kp C_NEXT      &kp C_BRI_DN                    &kp LG(LEFT)    &kp LC(LEFT)    &kp LC(RIGHT)   &kp RG(RIGHT)   &none           &none
                                                 &none           &kp LSHFT       &none                           &kp LCTRL       &kp SPACE       &kp LCMD
             >;
         };
