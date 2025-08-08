@@ -27,7 +27,7 @@
         combo_nav {
             timeout-ms = <100>;
             /* (left thumb right) + (right thumb central) */
-            key-positions = <38 40>;
+            key-positions = <38 39>;
             bindings = <&mo NAV_L>;
         };
     };
